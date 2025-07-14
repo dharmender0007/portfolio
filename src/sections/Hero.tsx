@@ -73,7 +73,7 @@ export const HeroSection = () => {
           Crafting Next-Level Vibes & Killer UX
           </h1>
           <p className="mt-4 text-center text-white/60 md:text-lg">
-          Yo, I&apos;m <span className="text-white font-semibold">Harshvardhan Singh Shekhawat</span> founder of <span className="text-white font-semibold">Code Caffeine</span>, web dev wiz & data geek. Let’s cook up something fire! 🔥
+          Yo, I&apos;m <span className="text-white font-semibold">Dharmender Jangir , web dev wiz & data geek. Let’s cook up something fire! 🔥
           </p>
         </div>
         <div className="flex flex-col md:flex-row justify-center items-center mt-8 gap-4">
