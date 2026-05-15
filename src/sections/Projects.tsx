@@ -1,4 +1,4 @@
-import Devportfolioai from "@/assets/images/Devportfolioai.png";
+import Devportfolioai from "@/assets/images/Devportfolioai .png";
 import AmazonClone from "@/assets/images/amazon-clone.jpeg";
 import TiffineService from "@/assets/images/tiffin.png";
 import Image from "next/image";
