@@ -1,4 +1,4 @@
-import DevportfolioAii from "@/assets/images/DevportfolioAii.png";
+import Devportfolioai from "@/assets/images/Devportfolioai.png";
 import AmazonClone from "@/assets/images/amazon-clone.jpeg";
 import TiffineService from "@/assets/images/tiffin.png";
 import Image from "next/image";
@@ -30,7 +30,7 @@ const portfolioProjects = [
     { title: "Fetches and displays GitHub projects automatically" },
   ],
   link: "https://github.com/dharmender0007/devportfolio-ai",
-  image: DevportfolioAii,
+  image: Devportfolioai,
   },
   {
     company: "Taffine-Service",
