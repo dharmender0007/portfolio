@@ -20,6 +20,18 @@ const portfolioProjects = [
     image: AmazonClone,
   },
   {
+  company: "Devportfolio-Ai",
+  year: "2026",
+  title: "AI-Powered Developer Portfolio",
+  results: [
+    { title: "Automatically generates portfolio using AI" },
+    { title: "Creates personalized portfolio from resume upload" },
+    { title: "Fetches and displays GitHub projects automatically" },
+  ],
+  link: "https://dharmender-jangir-portfolio.vercel.app/",
+  image: DevportfolioAi,
+  },
+  {
     company: "Taffine-Service",
     year: "2024",
     title: "Order Food ",
