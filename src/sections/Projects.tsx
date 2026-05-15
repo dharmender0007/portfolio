@@ -28,7 +28,7 @@ const portfolioProjects = [
     { title: "Creates personalized portfolio from resume upload" },
     { title: "Fetches and displays GitHub projects automatically" },
   ],
-  link: "https://dharmender-jangir-portfolio.vercel.app/",
+  link: "https:https://github.com/dharmender0007/devportfolio-ai",
   image: DevportfolioAi,
   },
   {
