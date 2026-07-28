@@ -243,7 +243,7 @@ export default function Hero() {
               {[
                 { icon: <GithubIcon size={20} />, href: 'https://github.com/dharmender0007', label: 'GitHub' },
                 { icon: <LinkedinIcon size={20} />, href: 'https://linkedin.com', label: 'LinkedIn' },
-                { icon: <FileText size={20} />, href: 'https://drive.google.com/file/d/1Mrpd1oS3FRtNMJ10dUsp8qXMeLHOcCxp/view?usp=sharing', label: 'Resume' },
+                { icon: <FileText size={20} />, href: 'https://drive.google.com/file/d/10vhYe6WXRssxN4bQaoNiVTrTqDEumqLe/view?usp=sharing', label: 'Resume' },
                 { icon: <Mail size={20} />, href: 'mailto:jangirdharmender333@gmail.com', label: 'Email' }
               ].map((social, idx) => (
                 <a
