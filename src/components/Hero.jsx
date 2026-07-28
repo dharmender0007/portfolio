@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Code, Sparkles, Mail, FileText } from 'lucide-react';
 
-const GithubIcon = ({ size = 20 }) => (
+const GithubIcon = ({ size = 22 }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={size}
@@ -19,7 +19,7 @@ const GithubIcon = ({ size = 20 }) => (
   </svg>
 );
 
-const LinkedinIcon = ({ size = 20 }) => (
+const LinkedinIcon = ({ size = 22 }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={size}
@@ -43,18 +43,18 @@ export default function Hero() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.1
+        staggerChildren: 0.08,
+        delayChildren: 0.05
       }
     }
   };
 
   const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
+    hidden: { y: 15, opacity: 0 },
     visible: { 
       y: 0, 
       opacity: 1,
-      transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] }
+      transition: { duration: 0.5, ease: [0.25, 1, 0.5, 1] }
     }
   };
 
@@ -66,20 +66,20 @@ export default function Hero() {
       display: 'flex', 
       alignItems: 'center',
       justifyContent: 'center',
-      paddingTop: '100px', // Increased padding to clear sticky navbar and prevent overlap
-      paddingBottom: '80px',
+      paddingTop: '90px', // Adjusted to balance spacing and clear navbar
+      paddingBottom: '50px',
       boxSizing: 'border-box'
     }}>
-      {/* Background blobs */}
+      {/* Subtle blurred gradient blobs */}
       <div style={{
         position: 'absolute',
-        top: '10%',
-        right: '5%',
-        width: '350px',
-        height: '350px',
+        top: '15%',
+        right: '10%',
+        width: '380px',
+        height: '380px',
         borderRadius: '50%',
-        background: 'radial-gradient(circle, rgba(139, 92, 246, 0.08) 0%, transparent 70%)',
-        filter: 'blur(60px)',
+        background: 'radial-gradient(circle, rgba(139, 92, 246, 0.06) 0%, rgba(6, 182, 212, 0.04) 50%, transparent 70%)',
+        filter: 'blur(70px)',
         pointerEvents: 'none',
         zIndex: 0
       }} />
@@ -96,31 +96,33 @@ export default function Hero() {
         {/* Two column Grid on Desktop */}
         <div className="hero-grid" style={{
           display: 'grid',
-          gridTemplateColumns: '1.2fr 0.8fr',
-          gap: '40px',
+          gridTemplateColumns: '1.25fr 0.75fr',
+          gap: '32px', // Reduced gap for a tighter layout
           alignItems: 'center'
         }}>
           {/* Left Column: Details */}
-          <div style={{ textAlign: 'left' }}>
-            {/* Intro tag with soft glow */}
+          <div style={{ textAlign: 'left', display: 'flex', flexDirection: 'column', gap: '14px' }}>
+            {/* Intro tag with subtle pulse glow */}
             <motion.div 
               variants={itemVariants}
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '8px',
-                padding: '6px 16px',
+                padding: '6px 14px',
                 borderRadius: '9999px',
                 fontSize: '0.85rem',
                 fontWeight: 600,
-                border: '1px solid rgba(139, 92, 246, 0.4)',
+                border: '1px solid rgba(139, 92, 246, 0.35)',
                 backgroundColor: 'var(--primary-glow)',
                 color: 'var(--text-main)',
-                marginBottom: '20px',
+                width: 'fit-content',
                 textTransform: 'uppercase',
-                letterSpacing: '1px',
-                boxShadow: '0 0 15px rgba(139, 92, 246, 0.15)'
+                letterSpacing: '1.5px',
+                animation: 'pulseGlow 3s infinite ease-in-out',
+                transition: 'border-color 0.3s, box-shadow 0.3s'
               }}
+              className="available-badge"
             >
               <Sparkles size={14} className="text-gradient" />
               <span>Available for Roles</span>
@@ -130,78 +132,85 @@ export default function Hero() {
             <motion.h1 
               variants={itemVariants}
               style={{
-                fontSize: 'clamp(2.8rem, 6vw, 4.5rem)',
+                fontSize: 'clamp(3rem, 6vw, 4.8rem)',
                 lineHeight: 1.05,
-                marginBottom: '16px',
                 fontWeight: 800,
                 letterSpacing: '-2.5px',
-                color: 'var(--text-main)'
+                color: 'var(--text-main)',
+                margin: 0
               }}
             >
               Hi, I'm <br />
-              <span className="text-gradient" style={{ display: 'inline-block', marginTop: '4px' }}>Dharmender Jangir</span>
+              <span className="text-gradient" style={{ display: 'inline-block', marginTop: '2px' }}>Dharmender Jangir</span>
             </motion.h1>
 
             {/* Professional Subtitle */}
             <motion.h2 
               variants={itemVariants}
               style={{
-                fontSize: 'clamp(1.1rem, 2.5vw, 1.45rem)',
+                fontSize: 'clamp(1.15rem, 2.5vw, 1.5rem)',
                 color: 'var(--text-muted)',
                 fontWeight: 500,
-                marginBottom: '20px',
-                lineHeight: 1.3
+                lineHeight: 1.2,
+                letterSpacing: '-0.2px',
+                margin: 0
               }}
             >
               Full Stack Developer <span style={{ color: 'var(--card-border)' }}>|</span> MERN Stack <span style={{ color: 'var(--card-border)' }}>|</span> <span className="text-gradient-alt" style={{ fontWeight: 600 }}>AI Integration</span>
             </motion.h2>
 
-            {/* Short Paragraph */}
+            {/* Short Paragraph (Left aligned, comfortable max-width, improved line-height) */}
             <motion.p 
               variants={itemVariants}
               style={{
                 fontSize: '1.05rem',
                 color: 'var(--text-muted)',
-                lineHeight: 1.6,
-                maxWidth: '620px',
-                marginBottom: '24px',
-                fontWeight: 400
+                lineHeight: 1.65,
+                maxWidth: '560px', // Set comfortable reading width
+                margin: 0,
+                textAlign: 'left', // Strict left alignment on all viewports
+                letterSpacing: '0.1px'
               }}
             >
               Results-driven B.Tech (IT) graduate passionate about building scalable MERN stack applications, REST APIs, responsive UIs, and AI-powered solutions.
             </motion.p>
 
-            {/* Tech Stack Chips */}
+            {/* Tech Stack Chips (Glass effect, better spacing/padding) */}
             <motion.div 
               variants={itemVariants}
               style={{
                 display: 'flex',
                 gap: '8px',
                 flexWrap: 'wrap',
-                marginBottom: '32px'
+                margin: '4px 0' // Reduced margin
               }}
             >
-              {['React', 'Node.js', 'Express', 'MongoDB', 'JavaScript', 'OpenAI API'].map((tech, idx) => (
+              {['React', 'Node.js', 'Express', 'MongoDB', 'JavaScript', 'REST APIs'].map((tech, idx) => (
                 <span
                   key={idx}
                   style={{
                     fontSize: '0.8rem',
                     padding: '6px 14px',
                     borderRadius: '9999px',
-                    backgroundColor: 'var(--card-bg)',
+                    backgroundColor: 'rgba(255, 255, 255, 0.02)',
+                    backdropFilter: 'blur(8px)',
+                    WebkitBackdropFilter: 'blur(8px)',
                     border: '1px solid var(--card-border)',
                     color: 'var(--text-muted)',
                     fontWeight: 500,
-                    transition: 'all 0.2s'
+                    height: '32px',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    transition: 'all 0.25s ease'
                   }}
-                  className="tech-chip"
+                  className="tech-chip-premium"
                 >
                   {tech}
                 </span>
               ))}
             </motion.div>
 
-            {/* Action Buttons */}
+            {/* Action Buttons (Visually balanced, improved transition/hover) */}
             <motion.div 
               variants={itemVariants}
               style={{
@@ -209,35 +218,38 @@ export default function Hero() {
                 gap: '16px',
                 flexWrap: 'wrap',
                 alignItems: 'center',
-                marginBottom: '28px'
+                margin: '4px 0' // Reduced margin
               }}
             >
               <a href="#projects" className="btn btn-primary" style={{ 
                 textDecoration: 'none',
-                minWidth: '150px',
+                width: '160px',
                 justifyContent: 'center',
-                boxShadow: '0 4px 15px rgba(139, 92, 246, 0.25)'
+                boxShadow: '0 4px 20px rgba(139, 92, 246, 0.2)',
+                transition: 'all 0.3s cubic-bezier(0.25, 1, 0.5, 1)'
               }}>
                 <span>View Projects</span>
                 <ArrowRight size={16} />
               </a>
               <a href="#contact" className="btn btn-secondary" style={{ 
                 textDecoration: 'none',
-                minWidth: '150px',
-                justifyContent: 'center'
+                width: '160px',
+                justifyContent: 'center',
+                transition: 'all 0.3s cubic-bezier(0.25, 1, 0.5, 1)'
               }}>
                 <Code size={16} />
                 <span>Contact Me</span>
               </a>
             </motion.div>
 
-            {/* Social Links Row */}
+            {/* Social Links Row (Glassmorphism, slightly larger, hover glow & scale) */}
             <motion.div
               variants={itemVariants}
               style={{
                 display: 'flex',
-                gap: '16px',
-                alignItems: 'center'
+                gap: '12px',
+                alignItems: 'center',
+                margin: 0
               }}
             >
               {[
@@ -257,13 +269,17 @@ export default function Hero() {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    padding: '8px',
+                    width: '42px',
+                    height: '42px',
                     borderRadius: '50%',
-                    backgroundColor: 'var(--card-bg)',
+                    backgroundColor: 'rgba(255, 255, 255, 0.03)',
+                    backdropFilter: 'blur(8px)',
+                    WebkitBackdropFilter: 'blur(8px)',
                     border: '1px solid var(--card-border)',
-                    transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)'
+                    boxShadow: 'var(--shadow)',
+                    transition: 'all 0.3s cubic-bezier(0.25, 1, 0.5, 1)'
                   }}
-                  className="social-icon-link"
+                  className="social-icon-premium"
                 >
                   {social.icon}
                 </a>
@@ -276,7 +292,8 @@ export default function Hero() {
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
-            justifyContent: 'center'
+            justifyContent: 'center',
+            marginTop: '10px' // Closer alignment
           }}>
             <motion.div 
               variants={itemVariants}
@@ -286,50 +303,52 @@ export default function Hero() {
                 position: 'relative'
               }}
             >
-              {/* Soft purple glow behind profile photo */}
+              {/* Premium purple and blue glow highlights behind profile photo */}
               <div style={{
                 position: 'absolute',
-                width: 'clamp(220px, 60vw, 320px)',
-                height: 'clamp(220px, 60vw, 320px)',
+                width: 'clamp(200px, 55vw, 300px)',
+                height: 'clamp(200px, 55vw, 300px)',
                 borderRadius: '50%',
-                background: 'radial-gradient(circle, var(--primary) 0%, rgba(217, 70, 239, 0.3) 60%, transparent 100%)',
-                filter: 'blur(30px)',
-                opacity: 0.25,
+                background: 'radial-gradient(circle, rgba(139, 92, 246, 0.2) 0%, rgba(6, 182, 212, 0.15) 50%, transparent 100%)',
+                filter: 'blur(35px)',
+                opacity: 0.3,
                 zIndex: 1
               }} />
 
               {/* Profile Image with premium circular gradient border */}
               <motion.div 
                 animate={{
-                  y: [0, -10, 0]
+                  y: [0, -8, 0]
                 }}
                 transition={{
-                  duration: 6,
+                  duration: 5,
                   repeat: Infinity,
                   ease: "easeInOut"
                 }}
                 whileHover={{ scale: 1.02 }}
                 style={{
-                  width: 'clamp(200px, 55vw, 290px)',
-                  height: 'clamp(200px, 55vw, 290px)',
+                  width: 'clamp(190px, 52vw, 275px)',
+                  height: 'clamp(190px, 52vw, 275px)',
                   borderRadius: '50%',
                   overflow: 'hidden',
-                  padding: '4px',
+                  padding: '3px',
                   background: 'linear-gradient(135deg, var(--primary) 0%, var(--secondary) 50%, var(--accent) 100%)',
-                  boxShadow: '0 10px 30px rgba(0, 0, 0, 0.5)',
+                  boxShadow: '0 10px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(139, 92, 246, 0.15)',
                   zIndex: 2,
                   position: 'relative'
                 }}
               >
+                {/* Image background wrapper replacing flat grey look */}
                 <div style={{
                   width: '100%',
                   height: '100%',
                   borderRadius: '50%',
                   overflow: 'hidden',
-                  backgroundColor: 'var(--bg-color)'
+                  background: 'radial-gradient(circle at center, rgba(30, 27, 45, 0.9) 0%, #0a0815 100%)',
+                  boxShadow: 'inset 0 0 15px rgba(6, 182, 212, 0.25)'
                 }}>
                   <img 
-                    src={`${baseUrl}profile.png?v=1.1`} // Added cache buster to bypass browser 404 cache
+                    src={`${baseUrl}profile.png?v=1.1`}
                     alt="Dharmender Jangir Profile" 
                     style={{
                       width: '100%',
@@ -341,14 +360,14 @@ export default function Hero() {
               </motion.div>
             </motion.div>
 
-            {/* Trust Section Glass Cards */}
+            {/* Trust Section Glass Cards (Reduced margin to match layout spacing) */}
             <motion.div
               variants={itemVariants}
               style={{
                 display: 'flex',
-                gap: '12px',
+                gap: '10px',
                 justifyContent: 'center',
-                marginTop: '32px',
+                marginTop: '24px',
                 width: '100%',
                 flexWrap: 'wrap'
               }}
@@ -360,20 +379,22 @@ export default function Hero() {
               ].map((card, idx) => (
                 <motion.div
                   key={idx}
-                  whileHover={{ y: -4, borderColor: 'var(--primary)', boxShadow: '0 4px 15px var(--primary-glow)' }}
+                  whileHover={{ y: -3, borderColor: 'var(--primary)', boxShadow: '0 4px 15px var(--primary-glow)' }}
                   style={{
-                    padding: '8px 16px',
-                    borderRadius: '12px',
+                    padding: '8px 14px',
+                    borderRadius: '10px',
                     fontSize: '0.85rem',
                     fontWeight: 600,
                     color: 'var(--text-main)',
                     border: '1px solid var(--card-border)',
+                    backgroundColor: 'rgba(255, 255, 255, 0.02)',
+                    backdropFilter: 'blur(8px)',
+                    WebkitBackdropFilter: 'blur(8px)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    transition: 'all 0.3s'
+                    transition: 'all 0.25s ease'
                   }}
-                  className="glass-panel"
                 >
                   <span>{card.label}</span>
                 </motion.div>
@@ -384,35 +405,59 @@ export default function Hero() {
       </motion.div>
 
       <style>{`
-        .social-icon-link:hover {
+        @keyframes pulseGlow {
+          0% {
+            box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.35);
+            transform: scale(1);
+          }
+          50% {
+            box-shadow: 0 0 15px 4px rgba(139, 92, 246, 0.15);
+            transform: scale(1.02);
+          }
+          100% {
+            box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.35);
+            transform: scale(1);
+          }
+        }
+
+        .social-icon-premium:hover {
           color: var(--primary) !important;
           border-color: var(--primary) !important;
-          transform: translateY(-3px);
-          box-shadow: 0 4px 12px var(--primary-glow);
+          transform: translateY(-3px) scale(1.08);
+          box-shadow: 0 0 15px rgba(139, 92, 246, 0.25);
+          background-color: rgba(139, 92, 246, 0.05) !important;
         }
         
-        .tech-chip:hover {
+        .tech-chip-premium:hover {
           color: var(--text-main) !important;
           border-color: var(--primary) !important;
           background-color: var(--primary-glow) !important;
+          transform: translateY(-2px);
         }
 
         @media (max-width: 968px) {
           .hero-grid {
             grid-template-columns: 1fr !important;
-            gap: 40px !important;
-            text-align: center !important;
+            gap: 28px !important;
+            text-align: left !important; /* Force left align layout */
           }
           .hero-grid div {
-            text-align: center !important;
+            text-align: left !important;
           }
           .hero-grid div[style*="marginBottom: '28px'"] {
-            justify-content: center !important;
+            justify-content: flex-start !important; /* Left align button container on mobile */
           }
-          .hero-grid div[style*="gap: '16px'"] {
-            justify-content: center !important;
+          .hero-grid div[style*="gap: '12px'"] {
+            justify-content: flex-start !important; /* Left align socials on mobile */
           }
-          .hero-grid div[style*="marginBottom: '32px'"] {
+          /* Center profile picture and trust cards explicitly on mobile */
+          .hero-grid div[style*="display: 'flex'"][style*="flexDirection: 'column'"] {
+            align-items: center !important;
+            text-align: center !important;
+            margin-top: 16px !important;
+          }
+          .hero-grid div[style*="display: 'flex'"][style*="flexDirection: 'column'"] div {
+            text-align: center !important;
             justify-content: center !important;
           }
         }
