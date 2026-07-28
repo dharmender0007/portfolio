@@ -222,7 +222,7 @@ export default function Hero() {
             >
               <a href="#projects" className="btn btn-primary" style={{ 
                 textDecoration: 'none',
-                width: '150px',
+                width: '170px',
                 height: '44px',
                 display: 'inline-flex',
                 alignItems: 'center',
@@ -236,7 +236,7 @@ export default function Hero() {
               </a>
               <a href="#contact" className="btn btn-secondary" style={{ 
                 textDecoration: 'none',
-                width: '150px',
+                width: '170px',
                 height: '44px',
                 display: 'inline-flex',
                 alignItems: 'center',
