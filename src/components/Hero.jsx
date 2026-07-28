@@ -58,14 +58,17 @@ export default function Hero() {
     }
   };
 
+  const baseUrl = import.meta.env.BASE_URL || '/';
+
   return (
     <section id="home" style={{ 
       minHeight: 'calc(100vh - 70px)', 
       display: 'flex', 
       alignItems: 'center',
       justifyContent: 'center',
-      paddingTop: '40px',
-      paddingBottom: '60px'
+      paddingTop: '100px', // Increased padding to clear sticky navbar and prevent overlap
+      paddingBottom: '80px',
+      boxSizing: 'border-box'
     }}>
       {/* Background blobs */}
       <div style={{
@@ -326,7 +329,7 @@ export default function Hero() {
                   backgroundColor: 'var(--bg-color)'
                 }}>
                   <img 
-                    src="/profile.png" 
+                    src={`${baseUrl}profile.png`} // Dynamic base path resolution for GitHub Pages subfolder
                     alt="Dharmender Jangir Profile" 
                     style={{
                       width: '100%',

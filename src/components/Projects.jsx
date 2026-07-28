@@ -224,7 +224,7 @@ export default function Projects() {
                 <motion.img 
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.3 }}
-                  src={project.image} 
+                  src={`${import.meta.env.BASE_URL || '/'}${project.image.startsWith('/') ? project.image.substring(1) : project.image}`} 
                   alt={`${project.title} Preview`}
                   style={{
                     width: '100%',
