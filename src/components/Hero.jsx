@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Code, Sparkles, Mail, FileText } from 'lucide-react';
 
-const GithubIcon = ({ size = 22 }) => (
+const GithubIcon = ({ size = 20 }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={size}
@@ -19,7 +19,7 @@ const GithubIcon = ({ size = 22 }) => (
   </svg>
 );
 
-const LinkedinIcon = ({ size = 22 }) => (
+const LinkedinIcon = ({ size = 20 }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={size}
@@ -62,24 +62,24 @@ export default function Hero() {
 
   return (
     <section id="home" style={{ 
-      minHeight: 'calc(100vh - 70px)', 
+      minHeight: 'auto', // Reduced height for more compact feel
       display: 'flex', 
       alignItems: 'center',
       justifyContent: 'center',
-      paddingTop: '90px', // Adjusted to balance spacing and clear navbar
-      paddingBottom: '50px',
+      paddingTop: '80px', // Balanced spacing to clear sticky navbar
+      paddingBottom: '30px', // Reduced padding
       boxSizing: 'border-box'
     }}>
       {/* Subtle blurred gradient blobs */}
       <div style={{
         position: 'absolute',
-        top: '15%',
+        top: '12%',
         right: '10%',
         width: '380px',
         height: '380px',
         borderRadius: '50%',
-        background: 'radial-gradient(circle, rgba(139, 92, 246, 0.06) 0%, rgba(6, 182, 212, 0.04) 50%, transparent 70%)',
-        filter: 'blur(70px)',
+        background: 'radial-gradient(circle, rgba(139, 92, 246, 0.05) 0%, rgba(6, 182, 212, 0.03) 55%, transparent 70%)',
+        filter: 'blur(75px)',
         pointerEvents: 'none',
         zIndex: 0
       }} />
@@ -97,11 +97,11 @@ export default function Hero() {
         <div className="hero-grid" style={{
           display: 'grid',
           gridTemplateColumns: '1.25fr 0.75fr',
-          gap: '32px', // Reduced gap for a tighter layout
+          gap: '24px', // Tighter spacing between details and image
           alignItems: 'center'
         }}>
           {/* Left Column: Details */}
-          <div style={{ textAlign: 'left', display: 'flex', flexDirection: 'column', gap: '14px' }}>
+          <div style={{ textAlign: 'left', display: 'flex', flexDirection: 'column', gap: '12px' }}>
             {/* Intro tag with subtle pulse glow */}
             <motion.div 
               variants={itemVariants}
@@ -109,22 +109,20 @@ export default function Hero() {
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '8px',
-                padding: '6px 14px',
+                padding: '5px 12px',
                 borderRadius: '9999px',
-                fontSize: '0.85rem',
+                fontSize: '0.8rem',
                 fontWeight: 600,
-                border: '1px solid rgba(139, 92, 246, 0.35)',
+                border: '1px solid rgba(139, 92, 246, 0.3)',
                 backgroundColor: 'var(--primary-glow)',
                 color: 'var(--text-main)',
                 width: 'fit-content',
                 textTransform: 'uppercase',
                 letterSpacing: '1.5px',
-                animation: 'pulseGlow 3s infinite ease-in-out',
-                transition: 'border-color 0.3s, box-shadow 0.3s'
+                animation: 'pulseGlow 3s infinite ease-in-out'
               }}
-              className="available-badge"
             >
-              <Sparkles size={14} className="text-gradient" />
+              <Sparkles size={13} className="text-gradient" />
               <span>Available for Roles</span>
             </motion.div>
 
@@ -132,12 +130,13 @@ export default function Hero() {
             <motion.h1 
               variants={itemVariants}
               style={{
-                fontSize: 'clamp(3rem, 6vw, 4.8rem)',
-                lineHeight: 1.05,
+                fontSize: 'clamp(2.3rem, 5.2vw, 3.8rem)', // Responsive clamp to ensure 1 or 2 lines maximum
+                lineHeight: 1.08,
                 fontWeight: 800,
-                letterSpacing: '-2.5px',
+                letterSpacing: '-2px',
                 color: 'var(--text-main)',
-                margin: 0
+                margin: 0,
+                wordBreak: 'keep-all'
               }}
             >
               Hi, I'm <br />
@@ -148,11 +147,11 @@ export default function Hero() {
             <motion.h2 
               variants={itemVariants}
               style={{
-                fontSize: 'clamp(1.15rem, 2.5vw, 1.5rem)',
+                fontSize: 'clamp(1.1rem, 2.3vw, 1.4rem)',
                 color: 'var(--text-muted)',
                 fontWeight: 500,
                 lineHeight: 1.2,
-                letterSpacing: '-0.2px',
+                letterSpacing: '-0.1px',
                 margin: 0
               }}
             >
@@ -163,44 +162,44 @@ export default function Hero() {
             <motion.p 
               variants={itemVariants}
               style={{
-                fontSize: '1.05rem',
+                fontSize: '1rem',
                 color: 'var(--text-muted)',
-                lineHeight: 1.65,
-                maxWidth: '560px', // Set comfortable reading width
+                lineHeight: 1.6,
+                maxWidth: '540px',
                 margin: 0,
-                textAlign: 'left', // Strict left alignment on all viewports
-                letterSpacing: '0.1px'
+                textAlign: 'left'
               }}
             >
               Results-driven B.Tech (IT) graduate passionate about building scalable MERN stack applications, REST APIs, responsive UIs, and AI-powered solutions.
             </motion.p>
 
-            {/* Tech Stack Chips (Glass effect, better spacing/padding) */}
+            {/* Tech Stack Chips (Glass effect, better spacing/padding, consistent height) */}
             <motion.div 
               variants={itemVariants}
               style={{
                 display: 'flex',
                 gap: '8px',
                 flexWrap: 'wrap',
-                margin: '4px 0' // Reduced margin
+                margin: '2px 0'
               }}
             >
               {['React', 'Node.js', 'Express', 'MongoDB', 'JavaScript', 'REST APIs'].map((tech, idx) => (
                 <span
                   key={idx}
                   style={{
-                    fontSize: '0.8rem',
-                    padding: '6px 14px',
-                    borderRadius: '9999px',
+                    fontSize: '0.78rem',
+                    padding: '0 12px',
+                    borderRadius: '8px',
                     backgroundColor: 'rgba(255, 255, 255, 0.02)',
                     backdropFilter: 'blur(8px)',
                     WebkitBackdropFilter: 'blur(8px)',
                     border: '1px solid var(--card-border)',
                     color: 'var(--text-muted)',
                     fontWeight: 500,
-                    height: '32px',
+                    height: '28px',
                     display: 'inline-flex',
                     alignItems: 'center',
+                    justifyContent: 'center',
                     transition: 'all 0.25s ease'
                   }}
                   className="tech-chip-premium"
@@ -210,53 +209,61 @@ export default function Hero() {
               ))}
             </motion.div>
 
-            {/* Action Buttons (Visually balanced, improved transition/hover) */}
+            {/* Action Buttons (Balanced width and identical height) */}
             <motion.div 
               variants={itemVariants}
               style={{
                 display: 'flex',
-                gap: '16px',
+                gap: '12px',
                 flexWrap: 'wrap',
                 alignItems: 'center',
-                margin: '4px 0' // Reduced margin
+                margin: '2px 0'
               }}
             >
               <a href="#projects" className="btn btn-primary" style={{ 
                 textDecoration: 'none',
-                width: '160px',
+                width: '150px',
+                height: '44px',
+                display: 'inline-flex',
+                alignItems: 'center',
                 justifyContent: 'center',
-                boxShadow: '0 4px 20px rgba(139, 92, 246, 0.2)',
+                padding: '0 16px',
+                boxShadow: '0 4px 15px rgba(139, 92, 246, 0.25)',
                 transition: 'all 0.3s cubic-bezier(0.25, 1, 0.5, 1)'
               }}>
                 <span>View Projects</span>
-                <ArrowRight size={16} />
+                <ArrowRight size={15} style={{ marginLeft: '6px' }} />
               </a>
               <a href="#contact" className="btn btn-secondary" style={{ 
                 textDecoration: 'none',
-                width: '160px',
+                width: '150px',
+                height: '44px',
+                display: 'inline-flex',
+                alignItems: 'center',
                 justifyContent: 'center',
+                padding: '0 16px',
                 transition: 'all 0.3s cubic-bezier(0.25, 1, 0.5, 1)'
               }}>
-                <Code size={16} />
+                <Code size={15} style={{ marginRight: '6px' }} />
                 <span>Contact Me</span>
               </a>
             </motion.div>
 
-            {/* Social Links Row (Glassmorphism, slightly larger, hover glow & scale) */}
+            {/* Social Links Row (Glassmorphism, larger touch targets, hover glow & scale) */}
             <motion.div
               variants={itemVariants}
               style={{
                 display: 'flex',
-                gap: '12px',
+                gap: '10px',
                 alignItems: 'center',
                 margin: 0
               }}
             >
               {[
-                { icon: <GithubIcon size={20} />, href: 'https://github.com/dharmender0007', label: 'GitHub' },
-                { icon: <LinkedinIcon size={20} />, href: 'https://linkedin.com', label: 'LinkedIn' },
-                { icon: <FileText size={20} />, href: 'https://drive.google.com/file/d/10vhYe6WXRssxN4bQaoNiVTrTqDEumqLe/view?usp=sharing', label: 'Resume' },
-                { icon: <Mail size={20} />, href: 'mailto:jangirdharmender333@gmail.com', label: 'Email' }
+                { icon: <GithubIcon size={19} />, href: 'https://github.com/dharmender0007', label: 'GitHub' },
+                { icon: <LinkedinIcon size={19} />, href: 'https://linkedin.com', label: 'LinkedIn' },
+                { icon: <FileText size={19} />, href: 'https://drive.google.com/file/d/10vhYe6WXRssxN4bQaoNiVTrTqDEumqLe/view?usp=sharing', label: 'Resume' },
+                { icon: <Mail size={19} />, href: 'mailto:jangirdharmender333@gmail.com', label: 'Email' }
               ].map((social, idx) => (
                 <a
                   key={idx}
@@ -269,8 +276,8 @@ export default function Hero() {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    width: '42px',
-                    height: '42px',
+                    width: '44px',
+                    height: '44px',
                     borderRadius: '50%',
                     backgroundColor: 'rgba(255, 255, 255, 0.03)',
                     backdropFilter: 'blur(8px)',
@@ -293,7 +300,7 @@ export default function Hero() {
             flexDirection: 'column',
             alignItems: 'center',
             justifyContent: 'center',
-            marginTop: '10px' // Closer alignment
+            marginTop: '0' // Closer vertical grid rhythm
           }}>
             <motion.div 
               variants={itemVariants}
@@ -306,11 +313,11 @@ export default function Hero() {
               {/* Premium purple and blue glow highlights behind profile photo */}
               <div style={{
                 position: 'absolute',
-                width: 'clamp(200px, 55vw, 300px)',
-                height: 'clamp(200px, 55vw, 300px)',
+                width: 'clamp(180px, 50vw, 270px)',
+                height: 'clamp(180px, 50vw, 270px)',
                 borderRadius: '50%',
-                background: 'radial-gradient(circle, rgba(139, 92, 246, 0.2) 0%, rgba(6, 182, 212, 0.15) 50%, transparent 100%)',
-                filter: 'blur(35px)',
+                background: 'radial-gradient(circle, rgba(139, 92, 246, 0.22) 0%, rgba(6, 182, 212, 0.16) 50%, transparent 100%)',
+                filter: 'blur(30px)',
                 opacity: 0.3,
                 zIndex: 1
               }} />
@@ -327,8 +334,8 @@ export default function Hero() {
                 }}
                 whileHover={{ scale: 1.02 }}
                 style={{
-                  width: 'clamp(190px, 52vw, 275px)',
-                  height: 'clamp(190px, 52vw, 275px)',
+                  width: 'clamp(180px, 50vw, 260px)', // Compact sizing
+                  height: 'clamp(180px, 50vw, 260px)',
                   borderRadius: '50%',
                   overflow: 'hidden',
                   padding: '3px',
@@ -365,9 +372,9 @@ export default function Hero() {
               variants={itemVariants}
               style={{
                 display: 'flex',
-                gap: '10px',
+                gap: '8px',
                 justifyContent: 'center',
-                marginTop: '24px',
+                marginTop: '20px',
                 width: '100%',
                 flexWrap: 'wrap'
               }}
@@ -381,9 +388,9 @@ export default function Hero() {
                   key={idx}
                   whileHover={{ y: -3, borderColor: 'var(--primary)', boxShadow: '0 4px 15px var(--primary-glow)' }}
                   style={{
-                    padding: '8px 14px',
-                    borderRadius: '10px',
-                    fontSize: '0.85rem',
+                    padding: '6px 12px',
+                    borderRadius: '8px',
+                    fontSize: '0.82rem',
                     fontWeight: 600,
                     color: 'var(--text-main)',
                     border: '1px solid var(--card-border)',
@@ -407,15 +414,15 @@ export default function Hero() {
       <style>{`
         @keyframes pulseGlow {
           0% {
-            box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.35);
+            box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.3);
             transform: scale(1);
           }
           50% {
-            box-shadow: 0 0 15px 4px rgba(139, 92, 246, 0.15);
-            transform: scale(1.02);
+            box-shadow: 0 0 12px 3px rgba(139, 92, 246, 0.15);
+            transform: scale(1.01);
           }
           100% {
-            box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.35);
+            box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.3);
             transform: scale(1);
           }
         }
@@ -438,18 +445,22 @@ export default function Hero() {
         @media (max-width: 968px) {
           .hero-grid {
             grid-template-columns: 1fr !important;
-            gap: 28px !important;
-            text-align: left !important; /* Force left align layout */
+            gap: 24px !important;
+            text-align: left !important;
           }
           .hero-grid div {
             text-align: left !important;
           }
           .hero-grid div[style*="marginBottom: '28px'"] {
-            justify-content: flex-start !important; /* Left align button container on mobile */
+            justify-content: flex-start !important;
           }
           .hero-grid div[style*="gap: '12px'"] {
-            justify-content: flex-start !important; /* Left align socials on mobile */
+            justify-content: flex-start !important;
           }
+          .hero-grid div[style*="marginBottom: '32px'"] {
+            justify-content: flex-start !important;
+          }
+          
           /* Center profile picture and trust cards explicitly on mobile */
           .hero-grid div[style*="display: 'flex'"][style*="flexDirection: 'column'"] {
             align-items: center !important;
