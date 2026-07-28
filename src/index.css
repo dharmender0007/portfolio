@@ -18,18 +18,18 @@
 }
 
 .light-theme {
-  --bg-color: #f8fafc;
-  --card-bg: rgba(255, 255, 255, 0.8);
-  --card-border: rgba(0, 0, 0, 0.06);
-  --text-main: #0f172a;
-  --text-muted: #64748b;
+  --bg-color: #faf9f5; /* Premium soft ivory / warm off-white */
+  --card-bg: rgba(244, 243, 238, 0.7); /* Slightly darker warm off-white cards */
+  --card-border: rgba(0, 0, 0, 0.08);
+  --text-main: #1c1917; /* Soft stone charcoal instead of harsh black */
+  --text-muted: #57534e; /* Warm stone-600 */
   --primary: #6366f1; /* Indigo */
-  --primary-glow: rgba(99, 102, 241, 0.1);
+  --primary-glow: rgba(99, 102, 241, 0.08);
   --secondary: #d946ef;
   --accent: #0284c7;
-  --accent-glow: rgba(2, 132, 199, 0.1);
-  --nav-bg: rgba(248, 250, 252, 0.8);
-  --shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+  --accent-glow: rgba(2, 132, 199, 0.08);
+  --nav-bg: rgba(250, 249, 245, 0.85); /* Matches warm background with blur */
+  --shadow: 0 10px 30px -10px rgba(120, 110, 90, 0.15);
 }
 
 * {
