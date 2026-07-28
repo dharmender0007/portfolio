@@ -1,0 +1,230 @@
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Sun, Moon, Mail, Menu, X } from 'lucide-react';
+
+const GithubIcon = ({ size = 18 }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+    <path d="M9 18c-4.51 2-5-2-7-2" />
+  </svg>
+);
+
+const LinkedinIcon = ({ size = 18 }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+    <rect width="4" height="12" x="2" y="9" />
+    <circle cx="4" cy="4" r="2" />
+  </svg>
+);
+
+export default function Navbar({ theme, toggleTheme }) {
+  const [isOpen, setIsOpen] = React.useState(false);
+
+  const navLinks = [
+    { name: 'Home', href: '#home' },
+    { name: 'Skills', href: '#skills' },
+    { name: 'Experience', href: '#experience' },
+    { name: 'Projects', href: '#projects' },
+    { name: 'Education', href: '#education' },
+    { name: 'Contact', href: '#contact' },
+  ];
+
+  return (
+    <motion.nav 
+      initial={{ y: -50, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      style={{
+        position: 'sticky',
+        top: 0,
+        zIndex: 50,
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        padding: '16px 24px',
+        maxWidth: '100%',
+        margin: '0 auto',
+        height: '70px',
+        borderBottom: '1px solid var(--card-border)',
+      }}
+      className="glass-panel"
+    >
+      {/* Logo */}
+      <a href="#home" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
+        <span style={{ 
+          fontFamily: 'var(--font-heading)', 
+          fontWeight: 800, 
+          fontSize: '1.4rem',
+          letterSpacing: '-1px',
+          color: 'var(--text-main)'
+        }}>
+          DHARMENDER<span className="text-gradient">.J</span>
+        </span>
+      </a>
+
+      {/* Desktop Navigation Links */}
+      <div style={{ display: 'none', gap: '32px', alignItems: 'center' }} className="desktop-nav">
+        <div style={{ display: 'flex', gap: '24px' }}>
+          {navLinks.map((link) => (
+            <a 
+              key={link.name} 
+              href={link.href} 
+              style={{
+                color: 'var(--text-muted)',
+                textDecoration: 'none',
+                fontWeight: 500,
+                fontSize: '0.95rem',
+                transition: 'color 0.2s',
+                fontFamily: 'var(--font-heading)'
+              }}
+              onMouseEnter={(e) => e.target.style.color = 'var(--primary)'}
+              onMouseLeave={(e) => e.target.style.color = 'var(--text-muted)'}
+            >
+              {link.name}
+            </a>
+          ))}
+        </div>
+
+        <div style={{ height: '20px', width: '1px', backgroundColor: 'var(--card-border)' }} />
+
+        {/* Theme and Social Icons */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+          <button 
+            onClick={toggleTheme}
+            style={{
+              background: 'none',
+              border: 'none',
+              color: 'var(--text-main)',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              padding: '6px',
+              borderRadius: '50%',
+              backgroundColor: 'var(--card-bg)'
+            }}
+          >
+            {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+          </button>
+          
+          <a href="https://github.com/dharmender0007" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-main)', display: 'flex', alignItems: 'center' }}>
+            <GithubIcon size={18} />
+          </a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-main)', display: 'flex', alignItems: 'center' }}>
+            <LinkedinIcon size={18} />
+          </a>
+        </div>
+      </div>
+
+      {/* Mobile Toggle Button */}
+      <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }} className="mobile-nav-toggle">
+        <button 
+          onClick={toggleTheme}
+          style={{
+            background: 'none',
+            border: 'none',
+            color: 'var(--text-main)',
+            cursor: 'pointer',
+            display: 'flex',
+            alignItems: 'center',
+            padding: '6px',
+            borderRadius: '50%',
+            backgroundColor: 'var(--card-bg)'
+          }}
+        >
+          {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+        </button>
+
+        <button 
+          onClick={() => setIsOpen(!isOpen)}
+          style={{
+            background: 'none',
+            border: 'none',
+            color: 'var(--text-main)',
+            cursor: 'pointer',
+            padding: '4px'
+          }}
+        >
+          {isOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+      </div>
+
+      {/* Mobile Menu Panel */}
+      {isOpen && (
+        <motion.div 
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          style={{
+            position: 'absolute',
+            top: '70px',
+            left: 0,
+            width: '100%',
+            padding: '24px',
+            borderBottom: '1px solid var(--card-border)',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '16px',
+            zIndex: 40
+          }}
+          className="glass-panel"
+        >
+          {navLinks.map((link) => (
+            <a 
+              key={link.name} 
+              href={link.href} 
+              onClick={() => setIsOpen(false)}
+              style={{
+                color: 'var(--text-main)',
+                textDecoration: 'none',
+                fontWeight: 600,
+                fontSize: '1.1rem'
+              }}
+            >
+              {link.name}
+            </a>
+          ))}
+          <div style={{ height: '1px', backgroundColor: 'var(--card-border)', margin: '8px 0' }} />
+          <div style={{ display: 'flex', gap: '20px' }}>
+            <a href="https://github.com/dharmender0007" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-main)', display: 'flex', alignItems: 'center' }}>
+              <GithubIcon size={20} />
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-main)', display: 'flex', alignItems: 'center' }}>
+              <LinkedinIcon size={20} />
+            </a>
+          </div>
+        </motion.div>
+      )}
+
+      {/* Responsive Inline CSS overrides */}
+      <style>{`
+        @media (min-width: 768px) {
+          .desktop-nav {
+            display: flex !important;
+          }
+          .mobile-nav-toggle {
+            display: none !important;
+          }
+        }
+      `}</style>
+    </motion.nav>
+  );
+}
