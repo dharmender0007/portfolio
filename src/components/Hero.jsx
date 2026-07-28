@@ -329,7 +329,7 @@ export default function Hero() {
                   backgroundColor: 'var(--bg-color)'
                 }}>
                   <img 
-                    src={`${baseUrl}profile.png`} // Dynamic base path resolution for GitHub Pages subfolder
+                    src={`${baseUrl}profile.png?v=1.1`} // Added cache buster to bypass browser 404 cache
                     alt="Dharmender Jangir Profile" 
                     style={{
                       width: '100%',

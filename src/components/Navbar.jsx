@@ -66,6 +66,9 @@ export default function Navbar({ theme, toggleTheme }) {
         margin: '0 auto',
         height: '70px',
         borderBottom: '1px solid var(--card-border)',
+        background: 'var(--nav-bg)',
+        backdropFilter: 'blur(12px)',
+        WebkitBackdropFilter: 'blur(12px)',
       }}
       className="glass-panel"
     >
