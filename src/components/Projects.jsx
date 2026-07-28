@@ -61,7 +61,7 @@ export default function Projects() {
       ]
     },
     {
-      title: "Hello's Foodies",
+      title: 'Hello Foodies',
       description: 'A modern, highly interactive frontend food ordering and delivery web application. Built using React.js and CSS Modules, it features a clean category search, dynamic basket state management, and an elegant simulated checkout flow.',
       tags: ['React.js', 'State Management', 'CSS Modules', 'Responsive UI', 'Frontend'],
       icon: <UtensilsCrossed size={24} className="text-gradient" />,
